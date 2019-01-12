@@ -5,3 +5,22 @@
 ●	случайный символ.
 Для каждого из трех случаев пользователь задает свои границы диапазона. Например, если надо получить случайный символ от 'a' до 'f', то вводятся эти символы. Программа должна вывести на экран любой символ алфавита от 'a' до 'f' включительно.
 """
+
+import random
+import string
+
+int1 = int(input("Введите первое в диапазоне целое число: "))
+int2 = int(input("Введите последнее в диапазоне целое число: "))
+
+print(random.randint(int1, int2))
+
+realnum1 = float(input("Введите первое для диапазона число с плавающей запятой: "))
+realnum2 = float(input("Введите последнее для диапазона число с плавающей запятой: "))
+
+print(random.uniform(realnum1, realnum2))
+
+let1 = input("Введите первую в диапазоне букву: ")
+let2 = input("Введите последнюю в диапазоне букву: ")
+
+print(random.choice(string.ascii_lowercase[string.ascii_lowercase.index(let1):string.ascii_lowercase.index(let2)+1]))
+
