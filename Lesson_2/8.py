@@ -10,7 +10,6 @@ def count(num_quant, figure, i, quant):
         num = str(randint(0, 9999))
         print(num)
         quant = num.count(figure)
-        print(quant)
         return quant + count(num_quant, figure, i+1, quant)
     else:
         return 0
@@ -18,4 +17,4 @@ def count(num_quant, figure, i, quant):
 num_quant = int(input("Введите количество чисел в последовательности "))
 figure = input("Введите цифру")
 
-print(count(num_quant, figure, 0, 0))
+print(f"Количество цифр {figure} в последовательности - {count(num_quant, figure, 0, 0)}")
