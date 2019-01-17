@@ -13,7 +13,7 @@ def guess(number, i):
     tries = 11 - i
     print(f"Попыток осталось {tries}")
     n = int(input(f"Введите число "))
-    print(number)
+
     if n == number:
         print("Вы угадали!")
         return number
