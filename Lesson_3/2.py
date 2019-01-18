@@ -6,6 +6,7 @@
 """
 import random
 
+# a list of unique numbers
 numbers = [j for j in range(2, 100)]
 random.shuffle(numbers)
 list1 = numbers[:9]
