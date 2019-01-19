@@ -4,15 +4,3 @@
 надо заполнить значениями 1, 4, 5, 6 (или 0, 3, 4, 5 - если индексация начинается с нуля), 
 т.к. именно в этих позициях первого массива стоят четные числа.
 """
-import random
-
-numbers = [j for j in range(2, 100)]
-random.shuffle(numbers)
-list1 = numbers[:9]
-print(list1)
-list2 = []
-for i in list1:
-    if i % 2 == 0:
-        list2.append(list1.index(i))
-
-print(f"Индексы четных чисел указанно выше последовательности: {list2}")
