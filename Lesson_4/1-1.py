@@ -8,8 +8,9 @@
 Количество элементов (n) вводится с клавиатуры.
 """
 
-
+import cProfile
 import timeit
+
 
 
 n = int(input("Давайте найдем сумму n элементов следующего ряда чисел: 1 -0.5 0.25 -0.125 ... Выберите, чему равно n "))
@@ -27,8 +28,11 @@ def loop(n, number, i):
     return sum(list_num)
 
 print(loop(n, number, i))
+cProfile.run('loop(n, number, i)')
+# При  n = 600: 604 function calls in 0.001 seconds
 
-print(timeit.timeit(("loop(n, number, i)"), setup="from __main__ import loop, n, number, i"))
+
+#print(timeit.timeit(("loop(n, number, i)"), setup="from __main__ import loop, n, number, i"))
 # при  n = 6 время выполнения пишет 5.8 секунд, хотя столько между вводом числа 6 и выводом результата функции
 # явно не прошло
 
@@ -38,7 +42,6 @@ while i < n:
     number = number / -2
     i += 1
 last_number = number
-print(last_number)
 
 
 # выход из алгоритма на условии else,
@@ -49,8 +52,11 @@ def num_sum(number, last_number):
     else:
         return number
 # вызываем функцию от 1 и уже определенного нами ранее n-нного числа последовательности
-#print(num_sum(1, last_number))
-print(timeit.timeit(("num_sum(1, last_number)"), setup="from __main__ import num_sum, last_number"))
+print(num_sum(1, last_number))
+cProfile.run('num_sum(1, last_number)')
+# При  n = 600: 603 function calls (4 primitive calls) in 0.001 seconds
+
+#print(timeit.timeit(("num_sum(1, last_number)"), setup="from __main__ import num_sum, last_number"))
 # при  n = 6 время выполнения пишет 4 секунды. Но при этом первый цикл while как я понимаю, в это время не входит.
 
 
@@ -76,8 +82,9 @@ number = 1
 
 # вызываем функцию от 1 и уже определенного нами ранее n-нного числа последовательности (результат функции-цикла)
 print(num_sum_2(1, loop_2(n, number, i)))
+cProfile.run('num_sum_2(1, loop_2(n, number, i))')
+# При  n = 600: 604 function calls (6 primitive calls) in 0.003 seconds
 
-
-
-print(timeit.timeit(("num_sum(1, loop_2(n, number, i))"), setup="from __main__ import num_sum, loop_2, n, number, i"))
+#print(timeit.timeit(("num_sum(1, loop_2(n, number, i))"), setup="from __main__ import num_sum, loop_2, n, number, i"))
 # при  n = 6 время выполнения пишет 8 секунд.
+
