@@ -32,7 +32,7 @@ i = 20
 # выводим число из результата функции (плученного списка num_plain_1
 print(plain_1(i))
 cProfile.run('(plain_1(i))')
-# i = 20: 0.007 секунд, при  i = 200: 22302 function calls in 0.025 seconds
+# i = 20: 0.007 секунд, при  i = 200: 8907759 function calls in 14.584 seconds
 
 
 #print(timeit.timeit(("plain_1(i)"), setup="from __main__ import plain_1, i"))
@@ -65,4 +65,4 @@ print(plain(i)[-1])
 
 cProfile.run('(plain(i)[-1])')
 
-#i = 20: 0.001 секунда, при  i = 200: 22302 function calls in 0.024 seconds - значительно быстрее решета
+#i = 20: 0.010 секунда, при  i = 200: 22302 function calls in 0.024 seconds - значительно быстрее решета
