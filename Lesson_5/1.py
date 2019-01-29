@@ -5,8 +5,9 @@
 вывести наименования предприятий, чья прибыль выше среднего и отдельно
 вывести наименования предприятий, чья прибыль ниже среднего.
 """
+import collections
 
-fin_report = {}
+fin_report = collections.defaultdict(list)
 comp_number = int(input("Общее число предприятий: "))
 
 for n in range(comp_number):
